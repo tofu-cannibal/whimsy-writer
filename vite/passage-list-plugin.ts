@@ -28,8 +28,11 @@ function serializePassageMap() {
 }
 
 function writePassageMap(content: string) {
-  writeFileSync(resolve(cwd(), 'src', '__generated', 'passage-map.ts'), content, 'utf-8');
+  const dirPath = resolve(cwd(), 'src', '__generated');
+  mkdirSync(dirPath, { recursive: true });
+  writeFileSync(resolve(dirPath, 'passage-map.ts'), content, "utf-8");
 }
+
 
 function schedulePassageMapUpdate() {
   clearTimeout(serializeTimeout);
@@ -57,3 +60,15 @@ export const passageListPlugin: (path: string) => PluginOption = (path) => {
     },
   };
 };
+function mkdirSync(dirPath: any, arg1: { recursive: boolean; }) {
+  throw new Error('Function not implemented.');
+}
+
+function clearTimeout(serializeTimeout: number) {
+  throw new Error('Function not implemented.');
+}
+
+function setTimeout(arg0: () => void, arg1: number): unknown {
+  throw new Error('Function not implemented.');
+}
+
